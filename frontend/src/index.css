@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #2c2c2c; /* Dark background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444; /* Darker color for the thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Lighter color for the thumb on hover */
+}
