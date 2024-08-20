@@ -82,8 +82,11 @@ function Navbar() {
               className={`dark:text-primaryText text-2xl transition hover:scale-125`}
             >
               <LuUserCircle2 />
+              
+              
             </Link>
           )}
+          
         </div>
       </div>
     </nav>

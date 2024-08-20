@@ -24,17 +24,53 @@ const createBlog = async (req, res) => {
     if (err.name === "ValidationError") {
       return res.status(500).json({ message: err.message, success: false });
     }
-    return res.status(500).json({ message: "Internal Server Error", success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
 const displayBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find();
+    if (!blogs.length) {
+      return res
+        .status(404)
+        .json({ message: "Blogs not found", success: false });
+    }
     const response = new ApiResponse(200, "Fetched Videos Successfully", blogs);
     return res.status(response.statusCode).json(response);
   } catch (err) {
-    return res.status(500).json({ message: "Internal Server Error", success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
+  }
+};
+
+const displayUserBlogs = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res
+        .status(400)
+        .json({ message: "Invalid userId", success: false });
+    }
+    const blogs = await Blog.find({ byUser: userId });
+    if (!blogs.length) {
+      return res
+        .status(404)
+        .json({ message: "Blogs not found", success: false });
+    }
+    const response = new ApiResponse(
+      200,
+      "Fetched user blogs successfully",
+      blogs
+    );
+    return res.status(response.statusCode).json(response);
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
@@ -43,12 +79,16 @@ const displaySingleBlog = async (req, res) => {
     const { id } = req.params;
     const blog = await Blog.findOne({ _id: id });
     if (!blog) {
-      return res.status(404).json({ message: "Blog not found", success: false });
+      return res
+        .status(404)
+        .json({ message: "Blog not found", success: false });
     }
     const response = new ApiResponse(200, "Fetched blog Successfully", blog);
     return res.status(response.statusCode).json(response);
   } catch (err) {
-    return res.status(500).json({ message: "Internal Server Error", success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
@@ -57,12 +97,24 @@ const deleteBlog = async (req, res) => {
     const { id } = req.params;
     const blog = await Blog.findByIdAndDelete(id);
     if (!blog) {
-      return  res.status(404).json({ message: "Blog not found", success: false });
+      return res
+        .status(404)
+        .json({ message: "Blog not found", success: false });
     }
-    return res.status(200).json(new ApiResponse(200, "Blog Deleted Successfully"));
+    return res
+      .status(200)
+      .json(new ApiResponse(200, "Blog Deleted Successfully"));
   } catch (err) {
-    return res.status(500).json({ message: "Internal Server Error", success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
 
-export { createBlog, displayBlogs, displaySingleBlog, deleteBlog };
+export {
+  createBlog,
+  displayBlogs,
+  displaySingleBlog,
+  displayUserBlogs,
+  deleteBlog,
+};

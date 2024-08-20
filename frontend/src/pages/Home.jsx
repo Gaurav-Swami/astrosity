@@ -55,7 +55,7 @@ function Home() {
                       className="dark:text-secondaryText text-lightSecondaryText line-clamp-3 mt-2 lg:mt-4"
                       dangerouslySetInnerHTML={{ __html: blog.content }}
                     />
-                    <hr className="border-t dark:border-secondaryBg border-gray-300 my-6 lg:my-10" />
+                    <hr className="border-t dark:border-gray-800 dark:border-t-[0.5px] border-gray-300 my-6 lg:my-10" />
                     <span className="hover:border-b hover:border-accent cursor-pointer text-accent ">
                       Read More
                     </span>

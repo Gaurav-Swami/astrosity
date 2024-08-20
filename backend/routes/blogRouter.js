@@ -5,6 +5,7 @@ import {
   displayBlogs,
   displaySingleBlog,
   deleteBlog,
+  displayUserBlogs,
 } from "../controllers/blogController.js";
 import { createBlogValidation } from "../middlewares/blogValidation.js";
 
@@ -12,6 +13,7 @@ blogRouter
   .post("/", createBlogValidation, createBlog)
   .get("/", displayBlogs)
   .get("/:id", displaySingleBlog)
-  .delete("/:id",deleteBlog);
+  .get("/user/:userId", displayUserBlogs)
+  .delete("/:id", deleteBlog);
 
 export default blogRouter;
