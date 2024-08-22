@@ -43,12 +43,13 @@ function Navbar() {
           >
             HOME
           </Link>
-          <button
+          <Link
+          to="/blogs"
             className={`hover:text-accent dark:text-primaryText
               }`}
           >
             BLOGS
-          </button>
+          </Link>
           <button
             className={`hover:text-accent dark:text-primaryText
               }`}

@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import CreateBlog from "./pages/CreateBlog";
 import Profile from "./pages/Profile";
 import TextEditor from "./components/TextEditor";
+import ShowBlogs from "./pages/ShowBlogs";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blogs" element={<ShowBlogs />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path="/texteditor" element={<TextEditor />} />
           <Route element={<RedirectIfAuthenticated />}>

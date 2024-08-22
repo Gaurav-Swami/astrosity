@@ -17,7 +17,7 @@ const blogSchema = new Schema(
       minLength: 10,
     },
     image: {
-      type: String, 
+      type: String,
       required: true,
     },
     byUser: {
@@ -25,6 +25,32 @@ const blogSchema = new Schema(
       ref: "User",
       required: true,
     },
+    likes: {
+      type: Number,
+      default: 0,
+    },
+    comments: [
+      {
+        content: {
+          type: String,
+          required: true,
+          minLength: 1,
+        },
+        byUser: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+        likes: {
+          type: Number,
+          default: 0,
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },  
+      },
+    ],
   },
   { timestamps: true }
 );
