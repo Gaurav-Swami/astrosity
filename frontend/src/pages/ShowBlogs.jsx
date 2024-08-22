@@ -42,7 +42,7 @@ function ShowBlogs() {
               <Link key={blog._id} to={`/blogs/${blog._id}`}>
                 <div className="flex flex-col items-center gap-x-4  p-1 m-2 w-xl cursor-pointer">
                   <img
-                    className="w-[454px] h-[350px] object-cover border border-b-0 dark:border-gray-700"
+                    className="w-[454px] h-[350px] object-cover"
                     src={blog.image}
                     alt=""
                   />

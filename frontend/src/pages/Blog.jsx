@@ -31,7 +31,7 @@ const Blog = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex justify-center w-full overflow-x-hidden h-full mt-16">
+        <div className="flex flex-col items-center w-full overflow-x-hidden h-full mt-16">
           <div className="max-w-[940px] flex-col gap-y-7 my-20 flex  px-24 border border-gray-300 dark:border-secondaryBg py-16">
             <p className="text-lightPrimaryText dark:text-primaryText text-4xl font-bold">
               {blog.title}
@@ -48,8 +48,14 @@ const Blog = () => {
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               />
             </p>
-            
           </div>
+          <form className="w-[940px] mb-20 flex flex-col gap-y-4  px-24 border border-gray-300 dark:border-secondaryBg py-10">
+            <span className="dark:text-primaryText text-xl ">Comments</span>
+            <hr className="border-t dark:border-secondaryBg dark:border-t border-gray-300" />
+            <textarea rows={4} type="text" placeholder="Write a comment..." className="dark:bg-black p-4 border border-gray-300 dark:border-secondaryBg mt-4 dark:text-primaryText"></textarea>
+            <button className=" hover:bg-accent hover:text-black dark:border-accent ml-auto px-4 py-[6px] border border-accent text-accent transition duration-200 ">Comment</button>
+          </form>
+
         </div>
       )}
     </>
