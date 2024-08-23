@@ -6,6 +6,7 @@ import "dotenv/config";
 import authRouter from "./routes/authRouter.js";
 import blogRouter from "./routes/blogRouter.js";
 
+
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
@@ -18,8 +19,9 @@ app.get("/", (req, res) => {
   return res.status(200).send("Welcome to our webstie");
 });
 
-app.use("/auth", authRouter);
+app.use("/auth", authRouter); 
 app.use("/blogs", blogRouter);
+
 
 app.listen(PORT, () => {
   console.log("The server is running...");

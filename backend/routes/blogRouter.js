@@ -6,11 +6,14 @@ import {
   displaySingleBlog,
   deleteBlog,
   displayUserBlogs,
+  createComment,
 } from "../controllers/blogController.js";
 import { createBlogValidation } from "../middlewares/blogValidation.js";
+import { commentValidation } from "../middlewares/commentValidation.js";
 
 blogRouter
   .post("/", createBlogValidation, createBlog)
+  .post("/:blogId/comments",commentValidation, createComment)
   .get("/", displayBlogs)
   .get("/:id", displaySingleBlog)
   .get("/user/:userId", displayUserBlogs)

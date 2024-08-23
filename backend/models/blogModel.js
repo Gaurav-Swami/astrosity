@@ -35,6 +35,7 @@ const blogSchema = new Schema(
           type: String,
           required: true,
           minLength: 1,
+          maxLength: 500,
         },
         byUser: {
           type: mongoose.Schema.Types.ObjectId,

@@ -111,10 +111,39 @@ const deleteBlog = async (req, res) => {
   }
 };
 
+const createComment = async (req, res) => {
+  try {
+    const { blogId } = req.params;
+    const { content, byUser } = req.body;
+    if (!mongoose.Types.ObjectId.isValid(byUser)) {
+      return res
+        .status(400)
+        .json({ message: "Invalid userId", success: false });
+    }
+    const blog = await Blog.findOne({ _id: blogId });
+    if (!blog) {
+      return res
+        .status(404)
+        .json({ message: "Blog not found", success: false });
+    }
+    const newComment = { content, byUser };
+    blog.comments.push(newComment);
+    await blog.save();
+    return res
+      .status(200)
+      .json(new ApiResponse(200, "Comment Posted"));
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
+  }
+};
+
 export {
   createBlog,
   displayBlogs,
   displaySingleBlog,
   displayUserBlogs,
   deleteBlog,
+  createComment,
 };
