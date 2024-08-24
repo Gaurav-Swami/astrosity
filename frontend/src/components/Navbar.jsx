@@ -1,11 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../features/darkmode/darkMode";
-import { displayMsg, Pop } from "../assets/Pop";
+import { displayMsg } from "../assets/Pop";
 import { signOut } from "../features/auth/authSlice";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { HiLightBulb } from "react-icons/hi";
-import { LuUserCircle2 } from "react-icons/lu";
+import { PiShareFatLight } from "react-icons/pi";
+
+import { FaUserCircle } from "react-icons/fa";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -80,9 +82,9 @@ function Navbar() {
           {isAuthenticated && (
             <Link
               to={`/profile/${user._id}`}
-              className={`dark:text-primaryText text-2xl transition hover:scale-125`}
+              className={`dark:text-primaryText text-4xl transition hover:scale-125`}
             >
-              <LuUserCircle2 />
+              <FaUserCircle/>
               
               
             </Link>

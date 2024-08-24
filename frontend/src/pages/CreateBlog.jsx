@@ -32,8 +32,8 @@ function CreateBlog() {
             "Content-Type": "application/json",
           },
         });
-        console.log("hello");
         const { message, success } = response.data;
+        //yahan se baaki hai
         if (success) {
           console.log("Blog created");
           console.log("Message:", message);

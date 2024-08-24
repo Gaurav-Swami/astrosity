@@ -21,7 +21,7 @@ function Home() {
 
   const setDate = (createdAt) => {
     const blogDate = new Date(createdAt);
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const options = { year: "numeric", month: "short", day: "numeric" };
     return blogDate.toLocaleDateString("en-US", options).replace(",", "");
   };
 
