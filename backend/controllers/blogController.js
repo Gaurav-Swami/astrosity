@@ -77,7 +77,10 @@ const displayUserBlogs = async (req, res) => {
 const displaySingleBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const blog = await Blog.findOne({ _id: id });
+    const blog = await Blog.findOne({ _id: id }).populate(
+      "comments.byUser",
+      "name"
+    );
     if (!blog) {
       return res
         .status(404)
@@ -129,9 +132,7 @@ const createComment = async (req, res) => {
     const newComment = { content, byUser };
     blog.comments.push(newComment);
     await blog.save();
-    return res
-      .status(200)
-      .json(new ApiResponse(200, "Comment Posted"));
+    return res.status(200).json(new ApiResponse(200, "Comment Posted"));
   } catch (err) {
     return res
       .status(500)

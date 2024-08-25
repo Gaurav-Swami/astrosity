@@ -1,9 +1,9 @@
 import {  Outlet,Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { displayMsg } from "./assets/Pop";
 
 const ProtectedRoute = () => {
   const auth = useSelector((state) => state.auth);
-  console.log('hello')
   return auth.isAuthenticated ? <Outlet /> : <Navigate to="/signin" />;
 };
 

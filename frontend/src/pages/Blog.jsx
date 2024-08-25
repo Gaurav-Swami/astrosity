@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { PiShareFatLight } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 
 const Blog = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,7 +22,7 @@ const Blog = () => {
   const [blog, setBlog] = useState(null);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
-  const userId = useSelector((state) => state.auth.user._id);
+  const userId = useSelector((state) => state.auth.user?._id);
 
   const setDate = (createdAt) => {
     const blogDate = new Date(createdAt);
@@ -30,6 +31,11 @@ const Blog = () => {
   };
 
   const onSubmit = async (data) => {
+    if (!userId) {
+      displayMsg("Please Sign In", 0);
+      navigate("/signin");
+      return;
+    }
     data.byUser = userId;
     const url = `http://localhost:3000/blogs/${blog._id}/comments`;
     try {
@@ -134,7 +140,7 @@ const Blog = () => {
                     <FaUserCircle className="text-4xl" />
                   </div>
                   <div className="">
-                    <div className="text-xs ">someone</div>
+                    <div className="text-sm ">{comment.byUser.name}</div>
                     <div className="text-xs">{setDate(comment.createdAt)} </div>
                     <p className="my-4 whitespace-pre-wrap">
                       {comment.content}
@@ -144,7 +150,8 @@ const Blog = () => {
                         <CiHeart className=" inline text-2xl" /> Like
                       </button>
                       <button className=" ">
-                        <PiShareFatLight className=" inline text-2xl   " /> Share
+                        <PiShareFatLight className=" inline text-2xl   " />{" "}
+                        Share
                       </button>
                     </div>
                   </div>
