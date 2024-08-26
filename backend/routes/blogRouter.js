@@ -10,10 +10,11 @@ import {
 } from "../controllers/blogController.js";
 import { createBlogValidation } from "../middlewares/blogValidation.js";
 import { commentValidation } from "../middlewares/commentValidation.js";
+import upload from "../middlewares/multer.js";
 
 blogRouter
-  .post("/", createBlogValidation, createBlog)
-  .post("/:blogId/comments",commentValidation, createComment)
+  .post("/", upload.single("image"), createBlogValidation, createBlog)
+  .post("/:blogId/comments", commentValidation, createComment)
   .get("/", displayBlogs)
   .get("/:id", displaySingleBlog)
   .get("/user/:userId", displayUserBlogs)

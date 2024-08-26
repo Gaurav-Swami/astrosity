@@ -8,6 +8,8 @@ import TextEditor from "../components/TextEditor";
 
 function CreateBlog() {
   const [content, setContent] = useState("Write something about Astronomy");
+  const [imageFile, setImageFile] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -16,24 +18,30 @@ function CreateBlog() {
   const userId = useSelector((state) => state.auth.user._id);
   const navigate = useNavigate();
 
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
   const onSubmit = async (data) => {
     if (content) {
       try {
-        if (!data.image) {
-          data.image =
-            "https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=600";
+        const formData = new FormData();
+
+        formData.append("title", data.title);
+        formData.append("content", content);
+        formData.append("user_id", userId);
+
+        if (imageFile) {
+          formData.append("image", imageFile);
         }
-        data.content = content;
-        data.user_id = userId;
         const url = "http://localhost:3000/blogs";
 
-        const response = await axios.post(url, data, {
+        const response = await axios.post(url, formData, {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         });
         const { message, success } = response.data;
-        //yahan se baaki hai
         if (success) {
           console.log("Blog created");
           console.log("Message:", message);
@@ -64,31 +72,12 @@ function CreateBlog() {
           <label className="" htmlFor="title">
             Content:
           </label>
-
-          {/* <div className="h-5 mt-1">
-          {errors.content && (
-            <p className="text-red-500 text-sm">{errors.content.message}</p>
-          )}
-        </div>
-        <textarea
-          rows="6"
-          type="text"
-          id="Content"
-          className=" border border-gray-300 dark:border-secondaryBg dark:bg-primaryBg "
-          {...register("content", {
-            required: "Content is required",
-            minLength: {
-              value: 10,
-              message: "The content must be at least 10 characters long",
-            },
-          })}
-        /> */}
           <div className="h-5 mt-1">
             {!content && (
               <p className="text-red-500 text-sm">{"Content is required"}</p>
             )}
           </div>
-          <TextEditor setContent={setContent} content = {content} />
+          <TextEditor setContent={setContent} content={content} />
         </div>
         <div className="flex flex-col w-[400px] gap-y-2">
           <label className="" htmlFor="title">
@@ -107,7 +96,7 @@ function CreateBlog() {
               required: "Title is required",
               minLength: {
                 value: 3,
-                message: "Username must be at least 3 characters long",
+                message: "Title must be at least 3 characters long",
               },
               maxLength: {
                 value: 100,
@@ -118,16 +107,16 @@ function CreateBlog() {
           <label className="" htmlFor="title">
             Image:
           </label>
-          <div className="h-5 mt-1">
+          {/* <div className="h-5 mt-1">
             {errors.image && (
               <p className="text-red-500 text-sm">{errors.image.message}</p>
             )}
-          </div>
+          </div> */}
           <input
-            type="text"
+            type="file"
             id="image"
             className=" h-10 border border-gray-300 dark:border-secondaryBg dark:bg-primaryBg"
-            {...register("image")}
+            onChange={handleImageChange}
           />
           <button
             type="submit"

@@ -1,10 +1,27 @@
 import Blog from "../models/blogModel.js";
 import mongoose from "mongoose";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import fs from "fs";
+import { cloudinary } from "../utils/coudinary.js";
 
 const createBlog = async (req, res) => {
   try {
-    const { title, content, image, user_id } = req.body;
+    const { title, content, user_id } = req.body;
+    const imageFile = req.file;
+    let imageURL = "";
+
+    if (imageFile) {
+      const result = await cloudinary.uploader.upload(imageFile.path, {
+        folder: "blogimages",
+      });
+      imageURL = result.secure_url;
+
+      fs.unlinkSync(imageFile.path);
+    } else {
+      imageURL =
+        "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3";
+    }
+
     if (!mongoose.Types.ObjectId.isValid(user_id)) {
       return res
         .status(400)
@@ -14,7 +31,7 @@ const createBlog = async (req, res) => {
       title,
       content,
       byUser: new mongoose.Types.ObjectId(user_id),
-      image,
+      image: imageURL,
     });
     await newBlog.save();
     return res
