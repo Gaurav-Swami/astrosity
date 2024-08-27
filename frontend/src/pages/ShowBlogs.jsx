@@ -34,7 +34,7 @@ function ShowBlogs() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex justify-center flex-col items-center mt-16">
+        <div className="flex justify-center flex-col items-center mt-28">
           
 
           <div className="grid grid-cols-2 gap-5 justify-items-center">

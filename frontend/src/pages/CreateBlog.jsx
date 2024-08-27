@@ -9,6 +9,7 @@ import TextEditor from "../components/TextEditor";
 function CreateBlog() {
   const [content, setContent] = useState("Write something about Astronomy");
   const [imageFile, setImageFile] = useState(null);
+  
 
   const {
     register,

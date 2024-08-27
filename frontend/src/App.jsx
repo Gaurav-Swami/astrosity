@@ -29,8 +29,8 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className={`${isDarkMode ? "dark" : ""}  h-full`}>
-      <div className="dark:bg-black bg-white flex flex-col ">
+    <div className={`${isDarkMode ? "dark" : ""}  h-full `}>
+      <div className="dark:bg-black bg-white flex flex-col  ">
         <Pop />
         <Navbar />
 

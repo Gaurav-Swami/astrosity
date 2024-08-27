@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import Video from "../components/LandingPage/Video";
+import HomeNavbar from "../components/LandingPage/HomeNavbar";
 
 function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -30,11 +32,13 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className="overflow-hidden">
+      <HomeNavbar/>
+      <Video />
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-9">
           <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
             {blogs.map((blog) => (
               <Link key={blog._id} to={`/blogs/${blog._id}`}>
@@ -66,7 +70,7 @@ function Home() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

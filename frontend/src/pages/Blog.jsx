@@ -16,7 +16,7 @@ const Blog = () => {
       console.log(res.data.data);
       setBlog(res.data.data);
       //setComments(res.data.data.comments);
-     
+
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -29,7 +29,6 @@ const Blog = () => {
 
   return (
     <>
-      {" "}
       {loading ? (
         <Spinner />
       ) : (
@@ -52,7 +51,7 @@ const Blog = () => {
             </div>
           </div>
 
-          <Comments blog={blog}/>
+          <Comments blog={blog} />
         </div>
       )}
     </>
