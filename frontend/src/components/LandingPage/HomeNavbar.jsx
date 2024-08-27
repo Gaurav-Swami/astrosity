@@ -47,7 +47,7 @@ function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <div className="text-black dark:text-white text-4xl font-bold" onClick={() => dispatch(toggleDarkMode())}>
+        <div className=" cursor-pointer text-black dark:text-white text-4xl font-bold" onClick={() => dispatch(toggleDarkMode())}>
           ASTROSITY
         </div>
         <div className="flex text-lg font-normal space-x-8 text-center items-center">
@@ -56,29 +56,29 @@ function Navbar() {
           <Link
             to="/"
             className={`hover:text-accent ${
-              isActive("/") ? "text-accent " : "dark:text-primaryText "
+              isActive("/") ? "text-accent " : "dark:text-white "
             }`}
           >
             HOME
           </Link>
-          <Link to="/blogs" className="hover:text-accent dark:text-primaryText">
+          <Link to="/blogs" className="hover:text-accent dark:text-white">
             BLOGS
           </Link>
-          <button className="hover:text-accent dark:text-primaryText">
+          <button className="hover:text-accent dark:text-white">
             ABOUT US
           </button>
-          <Link to="/blogs/create" className="hover:text-accent dark:text-primaryText">
+          <Link to="/blogs/create" className="hover:text-accent dark:text-white">
             WRITE
           </Link>
           {isAuthenticated ? (
-            <button className="dark:text-primaryText" onClick={onSignOut}>
+            <button className="dark:text-white" onClick={onSignOut}>
               SIGN OUT
             </button>
           ) : (
             <Link
               to="/signin"
               className={`hover:text-accent ${
-                isActive("/signin") ? "text-accent " : "dark:text-primaryText"
+                isActive("/signin") ? "text-accent " : "dark:text-white"
               }`}
             >
               SIGN IN
@@ -88,7 +88,7 @@ function Navbar() {
           {isAuthenticated && (
             <Link
               to={`/profile/${user._id}`}
-              className="dark:text-primaryText text-4xl transition hover:scale-125"
+              className="dark:text-white text-4xl transition hover:scale-125"
             >
               <FaUserCircle />
             </Link>

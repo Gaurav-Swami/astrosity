@@ -24,9 +24,9 @@ function VideoNavbar() {
   };
 
   return (
-    <nav className="bg-transparent px-20 py-6 top-0 text-white relative left-0 right-0 z-10 ">
+    <nav className="bg-transparent px-20 py-6 top-0 text-white relative left-0 z-10 w-[1524px]">
       <div className="container mx-auto flex items-center justify-between ">
-        <div className="   text-white text-4xl font-bold">ASTROSITY</div>
+        <div className="   text-white text-4xl font-bold cursor-pointer">ASTROSITY</div>
         <div className="flex text-lg font-normal space-x-8 text-center  items-center text-primaryText">
           <Link to="/" className={`hover:text-accent `}>
             HOME

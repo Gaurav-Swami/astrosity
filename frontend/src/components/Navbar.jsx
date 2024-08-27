@@ -27,10 +27,10 @@ function Navbar() {
   }
 
   return (
-    <nav className="dark:bg-black bg-white  px-20  py-6 fixed top-0 left-0 right-0 z-10 shadow-md ">
+    <nav className="dark:bg-black bg-white  px-20  py-6 fixed top-0 left-0 right-0 z-10 shadow-md ]">
       <div className="container mx-auto flex items-center justify-between ">
         <div
-          className="text-black  dark:text-white text-3xl font-bold cursor-pointer"
+          className="text-black  dark:text-white text-4xl font-bold cursor-pointer"
           onClick={() => dispatch(toggleDarkMode())}
         >
           ASTROSITY
@@ -39,7 +39,7 @@ function Navbar() {
           <Link
             to="/"
             className={`hover:text-accent ${
-              isActive("/") ? "text-accent " : "dark:text-primaryText "
+              isActive("/") ? "text-accent " : "dark:text-white "
             }`}
           >
             HOME
@@ -47,14 +47,14 @@ function Navbar() {
           <Link
             to="/blogs"
             className={`hover:text-accent ${
-              isActive("/blogs") ? "text-accent " : "dark:text-primaryText "
+              isActive("/blogs") ? "text-accent " : "dark:text-white "
             }`}
           >
             BLOGS
           </Link>
           <button
             className={`hover:text-accent ${
-              isActive("/about") ? "text-accent " : "dark:text-primaryText "
+              isActive("/about") ? "text-accent " : "dark:text-white "
             }`}
           >
             ABOUT US
@@ -64,20 +64,20 @@ function Navbar() {
             className={`hover:text-accent ${
               isActive("/blogs/create")
                 ? "text-accent "
-                : "dark:text-primaryText "
+                : "dark:text-white "
             }`}
           >
             WRITE
           </Link>
           {isAuthenticated ? (
-            <button className={"dark:text-primaryText "} onClick={onSignOut}>
+            <button className={"dark:text-white "} onClick={onSignOut}>
               SIGN OUT
             </button>
           ) : (
             <Link
               to="/signin"
               className={`hover:text-accent ${
-                isActive("/signin") ? "text-accent " : "dark:text-primaryText"
+                isActive("/signin") ? "text-accent " : "dark:text-white"
               }`}
             >
               SIGN IN
@@ -87,7 +87,7 @@ function Navbar() {
           {isAuthenticated && (
             <Link
               to={`/profile/${user._id}`}
-              className={`dark:text-primaryText text-4xl transition hover:scale-125`}
+              className={`dark:text-white text-4xl transition hover:scale-125`}
             >
               <FaUserCircle />
             </Link>

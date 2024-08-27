@@ -67,7 +67,7 @@ function CreateBlog() {
     <div className="flex justify-center h-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-row gap-x-6 dark:border-secondaryBg dark:border-[0.5px] border  border-lightPrimaryText  p-6  dark:text-primaryText text-lightSecondaryText mt-20  w-[1150px]  h-fit"
+        className="flex flex-row gap-x-6 dark:border-secondaryBg dark:border-[0.5px] border-[0.5px]  border-lightPrimaryText  p-6  dark:text-primaryText text-lightSecondaryText mt-28  w-[1150px]  h-fit"
       >
         <div>
           <label className="" htmlFor="title">
