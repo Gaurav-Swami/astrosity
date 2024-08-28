@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      animation: {
+        'rotate': 'rotate'
+      },
       colors: {
         primaryBg: "#121212",
         secondaryBg: "#1e1e1e",
