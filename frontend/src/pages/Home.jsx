@@ -33,15 +33,15 @@ function Home() {
   }, []);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden mb-36">
       <HomeNavbar/>
       <Video />
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex  flex-col items-center justify-center mt-9">
+        <div className="flex  flex-col items-center justify-center">
           <Planets/>
-          <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
+          {/* <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
             {blogs.map((blog) => (
               <Link key={blog._id} to={`/blogs/${blog._id}`}>
                 <div className="flex flex-col lg:flex-row items-center lg:gap-4 gap-2 p-1 m-2 w-xl cursor-pointer">
@@ -69,10 +69,10 @@ function Home() {
                 </div>
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
       )}
-    </div>
+    </div >
   );
 }
 
