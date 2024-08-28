@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import Video from "../components/LandingPage/Video";
 import HomeNavbar from "../components/LandingPage/HomeNavbar";
+import Planets from "../components/LandingPage/Planets";
 
 function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -38,7 +39,8 @@ function Home() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex justify-center mt-9">
+        <div className="flex  flex-col items-center justify-center mt-9">
+          <Planets/>
           <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
             {blogs.map((blog) => (
               <Link key={blog._id} to={`/blogs/${blog._id}`}>

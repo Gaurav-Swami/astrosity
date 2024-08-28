@@ -35,8 +35,6 @@ function ShowBlogs() {
         <Spinner />
       ) : (
         <div className="flex justify-center flex-col items-center mt-28">
-          
-
           <div className="grid grid-cols-2 gap-5 justify-items-center">
             {blogs.map((blog) => (
               <Link key={blog._id} to={`/blogs/${blog._id}`}>
