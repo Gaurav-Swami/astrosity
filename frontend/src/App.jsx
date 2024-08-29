@@ -14,6 +14,8 @@ import CreateBlog from "./pages/CreateBlog";
 import Profile from "./pages/Profile";
 import TextEditor from "./components/TextEditor";
 import ShowBlogs from "./pages/ShowBlogs";
+import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,18 +40,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<ShowBlogs />} />
           <Route path="/blogs/:id" element={<Blog />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/texteditor" element={<TextEditor />} />
           <Route element={<RedirectIfAuthenticated />}>
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
-            
           </Route>
 
           <Route element={<ProtectedRoute />}>
             <Route path="/blogs/create" element={<CreateBlog />} />
-            <Route path = "/profile/:userId" element = {<Profile/>}/>
+            <Route path="/profile/:userId" element={<Profile />} />
           </Route>
         </Routes>
+        <Footer />
       </div>
     </div>
   );

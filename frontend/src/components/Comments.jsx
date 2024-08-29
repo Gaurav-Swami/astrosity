@@ -112,7 +112,7 @@ const Comments = ({ blog }) => {
               <p className="my-4 whitespace-pre-wrap">{comment.content}</p>
               <div className="text-base ">
                 <button className=" mr-4 ">
-                  <CiHeart className=" inline text-2xl" /> Like
+                  <CiHeart className=" inline text-2xl" /> {comment.likes}
                 </button>
                 <button className=" ">
                   <PiShareFatLight className=" inline text-2xl   " /> Share

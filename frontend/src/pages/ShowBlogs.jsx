@@ -34,37 +34,7 @@ function ShowBlogs() {
       {loading ? (
         <Spinner />
       ) : (
-        // <div className="flex justify-center flex-col items-center mt-28">
-        //   <div className="grid grid-cols-2 gap-5 justify-items-center">
-        //     {blogs.map((blog) => (
-        //       <Link key={blog._id} to={`/blogs/${blog._id}`}>
-        //         <div className="flex flex-col items-center gap-x-4  p-1 m-2 w-xl cursor-pointer">
-        //           <img
-        //             className="w-[454px] h-[350px] object-cover"
-        //             src={blog.image}
-        //             alt=""
-        //           />
-        //           <div className="py-8 px-9 w-[454px]  h-[313px]  flex flex-col justify-between border border-t-0 dark:border-gray-700">
-        //             <div className="flex-col">
-        //               <p className="  dark:text-secondaryText text-lightSecondaryText text-sm mb-2">
-        //                 {setDate(blog.createdAt)}
-        //               </p>
-        //               <span className="dark:text-primaryText  text-2xl line-clamp-2">
-        //                 {blog.title}
-        //               </span>
-        //               <div
-        //                 className="dark:text-secondaryText text-lightSecondaryText line-clamp-3 mt-3"
-        //                 dangerouslySetInnerHTML={{ __html: blog.content }}
-        //               />
-        //             </div>
-        //           </div>
-        //         </div>
-        //       </Link>
-        //     ))}
-        //   </div>
-        // </div>
         <div className="flex  flex-col items-center justify-center mt-20">
-          
           <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
             {blogs.map((blog) => (
               <Link key={blog._id} to={`/blogs/${blog._id}`}>

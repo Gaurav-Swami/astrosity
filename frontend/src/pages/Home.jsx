@@ -34,45 +34,48 @@ function Home() {
 
   return (
     <div className="overflow-hidden mb-36">
-      <HomeNavbar/>
+      <HomeNavbar />
       <Video />
       {loading ? (
         <Spinner />
       ) : (
         <div className="flex  flex-col items-center justify-center ">
-          <Planets/>
-          {/* <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
-            {blogs.map((blog) => (
-              <Link key={blog._id} to={`/blogs/${blog._id}`}>
-                <div className="flex flex-col lg:flex-row items-center lg:gap-4 gap-2 p-1 m-2 w-xl cursor-pointer">
-                  <img
-                    className="lg:w-[470px] w-[550px] h-[300px] lg:h-[350px] object-cover"
-                    src={blog.image}
-                    alt=""
-                  />
-                  <div className="py-5 lg:py-8 lg:px-9 flex-col flex-1 lg:w-[480px] w-full h-[355px]">
-                    <p className="  dark:text-secondaryText text-lightSecondaryText text-sm lg:mb-6 mb-4">
-                      {setDate(blog.createdAt)}
-                    </p>
-                    <span className="dark:text-primaryText  text-2xl">
-                      {blog.title}
-                    </span>
-                    <div
-                      className="dark:text-secondaryText text-lightSecondaryText line-clamp-3 mt-2 lg:mt-4"
-                      dangerouslySetInnerHTML={{ __html: blog.content }}
+          <div className="flex justify-center flex-col items-center mt-4">
+            <h2 className="text-4xl font-bold text-lightPrimaryText text-center dark:text-white py-8">
+              Explore Our Blogs
+            </h2>
+            <div className="grid grid-cols-2 gap-5 justify-items-center">
+              {blogs.map((blog) => (
+                <Link key={blog._id} to={`/blogs/${blog._id}`}>
+                  <div className="flex flex-col items-center gap-x-4  p-1 m-2 w-xl cursor-pointer hover:scale-105 transition-all">
+                    <img
+                      className="w-[454px] h-[350px] object-cover rounded-t-3xl"
+                      src={blog.image}
+                      alt=""
                     />
-                    <hr className="border-t dark:border-gray-800 dark:border-t-[0.5px] border-gray-300 my-6 lg:my-10" />
-                    <span className="hover:border-b hover:border-accent cursor-pointer text-accent ">
-                      Read More
-                    </span>
+                    <div className="py-8 px-9 w-[454px] rounded-b-3xl  h-[313px]  flex flex-col justify-between border-2  border-t-0 dark:border-gray-900">
+                      <div className="flex-col">
+                        <p className="  dark:text-secondaryText text-lightSecondaryText text-sm mb-2">
+                          {setDate(blog.createdAt)}
+                        </p>
+                        <span className="dark:text-primaryText  text-2xl line-clamp-2">
+                          {blog.title}
+                        </span>
+                        <div
+                          className="dark:text-secondaryText text-lightSecondaryText line-clamp-3 mt-3"
+                          dangerouslySetInnerHTML={{ __html: blog.content }}
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div> */}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <Planets />
         </div>
       )}
-    </div >
+    </div>
   );
 }
 

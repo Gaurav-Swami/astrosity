@@ -64,9 +64,9 @@ function Navbar() {
           <Link to="/blogs" className="hover:text-accent dark:text-white">
             BLOGS
           </Link>
-          <button className="hover:text-accent dark:text-white">
+          <Link to="/aboutus"  className="hover:text-accent dark:text-white">
             ABOUT US
-          </button>
+          </Link>
           <Link to="/blogs/create" className="hover:text-accent dark:text-white">
             WRITE
           </Link>

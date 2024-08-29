@@ -29,7 +29,7 @@ function VideoNavbar() {
           <Link to="/blogs" className={`hover:text-accent  "55555`}>
             BLOGS
           </Link>
-          <button className={`hover:text-accent  `}>ABOUT US</button>
+          <Link to='/aboutus' className={`hover:text-accent  `}>ABOUT US</Link>
           <Link to="/blogs/create" className={`hover:text-accent  }`}>
             WRITE
           </Link>

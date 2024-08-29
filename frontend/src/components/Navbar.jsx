@@ -52,13 +52,13 @@ function Navbar() {
           >
             BLOGS
           </Link>
-          <button
+          <Link to="/aboutus"
             className={`hover:text-accent ${
               isActive("/about") ? "text-accent " : "dark:text-white "
             }`}
           >
             ABOUT US
-          </button>
+          </Link>
           <Link
             to="/blogs/create"
             className={`hover:text-accent ${
