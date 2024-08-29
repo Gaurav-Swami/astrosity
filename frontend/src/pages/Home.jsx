@@ -39,7 +39,7 @@ function Home() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex  flex-col items-center justify-center">
+        <div className="flex  flex-col items-center justify-center ">
           <Planets/>
           {/* <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
             {blogs.map((blog) => (
