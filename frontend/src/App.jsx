@@ -15,7 +15,7 @@ import Profile from "./pages/Profile";
 import TextEditor from "./components/TextEditor";
 import ShowBlogs from "./pages/ShowBlogs";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   const dispatch = useDispatch();
