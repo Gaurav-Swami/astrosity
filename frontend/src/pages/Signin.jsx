@@ -6,6 +6,7 @@ import { displayMsg } from "../assets/Pop";
 import axios from "axios";
 import { signIn } from "../features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import scrollToTop from "../hooks/scrollToTop";
 
 function Signin() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function Signin() {
     formState: { errors },
   } = useForm();
 
+  scrollToTop();
   const onSubmit = async (data) => {
     const url = "http://localhost:3000/auth/signin";
     if (Object.keys(errors).length === 0) {
@@ -81,7 +83,10 @@ function Signin() {
             </div>
           </div>
           <div className="mb-6">
-            <label className="block dark:text-secondaryText text-lightSecondaryText mb-2" htmlFor="password">
+            <label
+              className="block dark:text-secondaryText text-lightSecondaryText mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input

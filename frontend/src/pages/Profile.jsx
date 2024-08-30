@@ -59,11 +59,11 @@ const Profile = () => {
               <Link key={blog._id} to={`/blogs/${blog._id}`}>
                 <div className="flex flex-col items-center gap-x-4  p-1 m-2 w-xl cursor-pointer">
                   <img
-                    className="w-[454px] h-[350px] object-cover"
+                    className="w-[454px] h-[350px] object-cover rounded-t-3xl"
                     src={blog.image}
                     alt=""
                   />
-                  <div className="py-8 px-9 w-[454px]  h-[313px]  flex flex-col justify-between border border-t-0 dark:border-gray-700">
+                  <div className="rounded-b-3xl py-8 px-9 w-[454px]  h-[313px]  flex flex-col justify-between border border-t-0 dark:border-gray-700">
                     <div className="flex-col">
                       <p className="  dark:text-secondaryText text-lightSecondaryText text-sm mb-2">
                         {setDate(blog.createdAt)}

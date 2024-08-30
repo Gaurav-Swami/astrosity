@@ -9,6 +9,10 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top of the page
+  }, []);
+  
   const fetchBlog = async () => {
     setLoading(true);
     try {

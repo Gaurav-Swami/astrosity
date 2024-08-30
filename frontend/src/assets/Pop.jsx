@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 
 import React from "react";
-import { ToastContainer, toast, Flip,Zoom } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 
 const Msg = ({ closeToast, toastProps, msg, check }) => (
   <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export const displayMsg = (msg, check) => {
 
   toast(<Msg msg={msg} check={check} />, {
     position: "bottom-right",
-    autoClose: 2000,
+    autoClose: 3500,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,

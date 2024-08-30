@@ -5,6 +5,7 @@ import Spinner from "../components/Spinner";
 import Video from "../components/LandingPage/Video";
 import HomeNavbar from "../components/LandingPage/HomeNavbar";
 import Planets from "../components/LandingPage/Planets";
+import { FaUserCircle } from "react-icons/fa";
 
 function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -21,10 +22,10 @@ function Home() {
       setLoading(false);
     }
   };
-
+  // year: "numeric",
   const setDate = (createdAt) => {
     const blogDate = new Date(createdAt);
-    const options = { year: "numeric", month: "short", day: "numeric" };
+    const options = {  month: "short", day: "numeric" };
     return blogDate.toLocaleDateString("en-US", options).replace(",", "");
   };
 
@@ -55,10 +56,18 @@ function Home() {
                     />
                     <div className="py-8 px-9 w-[454px] rounded-b-3xl  h-[313px]  flex flex-col justify-between border-2  border-t-0 dark:border-gray-900">
                       <div className="flex-col">
-                        <p className="  dark:text-secondaryText text-lightSecondaryText text-sm mb-2">
-                          {setDate(blog.createdAt)}
-                        </p>
-                        <span className="dark:text-primaryText  text-2xl line-clamp-2">
+                        <div className=" flex dark:text-secondaryText text-lightSecondaryText items-center  mt-4">
+                          <div className="inline mr-2 text-xs">
+                            <FaUserCircle className=" text-3xl text-lightPrimaryText" />
+                          </div>
+                          <div className="flex flex-col text-xs font-thin">
+                          <div className="inline">{blog.byUser.name}</div>
+                          <p className="  dark:text-secondaryText text-lightSecondaryText text-xs ">
+                            {setDate(blog.createdAt)}
+                          </p>
+                          </div>
+                        </div>
+                        <span className="dark:text-primaryText  text-2xl line-clamp-2 pt-4">
                           {blog.title}
                         </span>
                         <div
@@ -72,7 +81,7 @@ function Home() {
               ))}
             </div>
           </div>
-          <Planets />
+          {/* <Planets /> */}
         </div>
       )}
     </div>
