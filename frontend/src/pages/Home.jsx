@@ -6,8 +6,10 @@ import Video from "../components/LandingPage/Video";
 import HomeNavbar from "../components/LandingPage/HomeNavbar";
 import Planets from "../components/LandingPage/Planets";
 import { FaUserCircle } from "react-icons/fa";
+import scrollToTop from "../hooks/scrollToTop";
 
 function Home() {
+  scrollToTop();
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +27,7 @@ function Home() {
   // year: "numeric",
   const setDate = (createdAt) => {
     const blogDate = new Date(createdAt);
-    const options = {  month: "short", day: "numeric" };
+    const options = { month: "short", day: "numeric" };
     return blogDate.toLocaleDateString("en-US", options).replace(",", "");
   };
 
@@ -61,10 +63,10 @@ function Home() {
                             <FaUserCircle className=" text-3xl text-lightPrimaryText" />
                           </div>
                           <div className="flex flex-col text-xs font-thin">
-                          <div className="inline">{blog.byUser.name}</div>
-                          <p className="  dark:text-secondaryText text-lightSecondaryText text-xs ">
-                            {setDate(blog.createdAt)}
-                          </p>
+                            <div className="inline">{blog.byUser.name}</div>
+                            <p className="  dark:text-secondaryText text-lightSecondaryText text-xs ">
+                              {setDate(blog.createdAt)}
+                            </p>
                           </div>
                         </div>
                         <span className="dark:text-primaryText  text-2xl line-clamp-2 pt-4">

@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { displayMsg } from "../assets/Pop";
 import axios from "axios";
 import TextEditor from "../components/TextEditor";
+import scrollToTop from "../hooks/scrollToTop.js";
 
 function CreateBlog() {
+  scrollToTop();
   const [content, setContent] = useState("Write something about Astronomy");
   const [imageFile, setImageFile] = useState(null);
-  
 
   const {
     register,
@@ -67,11 +68,11 @@ function CreateBlog() {
     <div className="flex justify-center h-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-row gap-x-6 dark:border-secondaryBg dark:border-[0.5px] border-[0.5px]  border-lightPrimaryText  p-6  dark:text-primaryText text-lightSecondaryText mt-28  w-[1150px]  h-fit"
+        className="flex flex-row gap-x-6 dark:border-secondaryBg dark:border-[0.5px] border-[0.5px]  border-lightPrimaryText  p-6  dark:text-primaryText text-black mt-28  w-[1150px]  h-fit"
       >
         <div>
           <label className="" htmlFor="title">
-            Content:
+            Content:  <span className="ml-2">Please press "Enter" Key two times to leave a line</span>
           </label>
           <div className="h-5 mt-1">
             {!content && (
@@ -92,7 +93,7 @@ function CreateBlog() {
           <input
             type="text"
             id="title"
-            className="h-10 border border-gray-300 dark:border-secondaryBg dark:bg-primaryBg"
+            className=" h-10 border border-gray-300 dark:border-secondaryBg dark:bg-primaryBg"
             {...register("title", {
               required: "Title is required",
               minLength: {
