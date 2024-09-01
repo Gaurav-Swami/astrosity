@@ -36,18 +36,18 @@ const Blog = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex flex-col items-center w-full overflow-x-hidden h-full mt-16">
-          <div className="max-w-[940px] flex-col gap-y-7 my-20 flex  px-24 border border-gray-300 dark:border-secondaryBg py-16">
-            <p className="text-lightPrimaryText dark:text-primaryText text-4xl font-bold">
+        <div className="flex flex-col items-center w-full overflow-x-hidden h-full mt-5 sm:mt-16">
+          <div className="max-w-[940px] flex-col gap-y-7 mb-5 mt-20  md:my-20 flex px-4 sm:px-12 md:px-24 border border-gray-300 dark:border-secondaryBg py-8  sm:py-16">
+            <p className="text-lightPrimaryText dark:text-primaryText  text-3xl sm:text-4xl font-bold">
               {blog.title}
             </p>
             <img
-              className=" w-full h-auto object-cover "
+              className=" w-full h-auto object-cover sm:h-auto max-h-[400px]"
               src={blog.image}
               alt=""
             />
 
-            <div className=" dark:text-primaryText text-xl">
+            <div className=" dark:text-primaryText text-lg md:text-xl">
               <div
                 className="dark:text-primaryText text-black  mt-4"
                 dangerouslySetInnerHTML={{ __html: blog.content }}

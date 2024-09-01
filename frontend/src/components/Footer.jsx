@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="w-full h-96 bg-black dark:bg-secondaryBg mt-20 text-white p-10 ">
+    <div className="w-full h-96 bg-black dark:bg-secondaryBg mt-5 md:mt-20 text-white px-4 py-7 sm:p-10  ">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo and Description */}
         <div>
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media Links */}
-        <div>
+        <div className="pb-7 sm:pb-10">
           <h3 className="text-xl font-semibold">Follow Us</h3>
           <div className="mt-4 flex space-x-6">
             <a

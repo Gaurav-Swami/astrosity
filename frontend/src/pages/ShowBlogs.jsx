@@ -34,17 +34,17 @@ function ShowBlogs() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex  flex-col items-center justify-center mt-20">
-          <div className="flex-col flex w-[550px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
+        <div className="flex  flex-col items-center justify-center mt-20 sm:py-0 py-4">
+          <div className="flex-col flex sm:w-[550px] w-[388px] lg:w-[990px] gap-y-2 lg:gap-y-5 rounded">
             {blogs.map((blog) => (
               <Link key={blog._id} to={`/blogs/${blog._id}`}>
-                <div className="flex flex-col lg:flex-row items-center lg:gap-4 gap-2 p-1 m-2 w-xl cursor-pointer">
+                <div className="flex flex-col lg:flex-row items-center lg:gap-4 gap-2 p-1 sm:m-2 w-xl cursor-pointer">
                   <img
-                    className="lg:w-[470px] w-[550px] h-[300px] lg:h-[350px] object-cover"
+                    className="lg:w-[470px] w-[388px] sm:w-[550px] h-[300px] lg:h-[350px] object-cover"
                     src={blog.image}
                     alt=""
                   />
-                  <div className="py-5 lg:py-8 lg:px-9 flex-col flex-1 lg:w-[480px] w-full h-[355px]">
+                  <div className="py-5 lg:py-8 lg:px-9 flex-col flex-1 lg:w-[480px]  w-full h-[355px]">
                     <p className="  dark:text-secondaryText text-lightSecondaryText text-sm lg:mb-6 mb-4">
                       {setDate(blog.createdAt)}
                     </p>

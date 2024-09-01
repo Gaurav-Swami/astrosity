@@ -42,12 +42,12 @@ function Navbar() {
 
   return (
     <nav
-      className={`dark:bg-black bg-white shadow-md  px-20 py-6 fixed top-0 left-0 right-0 z-10 transition-transform ${
+      className={`dark:bg-black bg-white shadow-md px-4 sm:px-20 py-3 sm:py-6 fixed top-0 left-0 right-0 z-10 transition-transform ${
         showNavbar ? "transform translate-y-0" : "transform -translate-y-full"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <div className=" cursor-pointer text-black dark:text-white text-4xl font-bold" onClick={() => dispatch(toggleDarkMode())}>
+        <div className=" cursor-pointer text-black dark:text-white text-3xl sm:text-4xl font-bold" onClick={() => dispatch(toggleDarkMode())}>
           ASTROSITY
         </div>
         <div className="flex text-lg font-normal space-x-8 text-center items-center">

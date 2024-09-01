@@ -27,7 +27,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="dark:bg-black bg-white  px-20  py-6 fixed top-0 left-0 right-0 z-10 shadow-md ]">
+    <nav className="dark:bg-black bg-white px-20  py-6 fixed top-0 left-0 right-0 z-10 shadow-md ]">
       <div className="container mx-auto flex items-center justify-between ">
         <div
           className="text-black  dark:text-white text-4xl font-bold cursor-pointer"

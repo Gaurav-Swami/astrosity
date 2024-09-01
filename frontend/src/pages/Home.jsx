@@ -42,25 +42,25 @@ function Home() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex  flex-col items-center justify-center ">
+        <div className="flex  flex-col items-center justify-center py-4">
           <div className="flex justify-center flex-col items-center mt-4">
-            <h2 className="text-4xl font-bold text-lightPrimaryText text-center dark:text-white py-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-lightPrimaryText text-center dark:text-white py-8">
               Explore Our Blogs
             </h2>
-            <div className="grid grid-cols-2 gap-5 justify-items-center">
+            <div className="grid gird-cols-1 sm:grid-cols-2 gap-5 justify-items-center">
               {blogs.map((blog) => (
                 <Link key={blog._id} to={`/blogs/${blog._id}`}>
-                  <div className="flex flex-col items-center gap-x-4  p-1 m-2 w-xl cursor-pointer hover:scale-105 transition-all">
+                  <div className="flex flex-col items-center gap-x-4  px-4 sm:p-1 sm:m-2 w-xl cursor-pointer sm:hover:scale-105 transition-all">
                     <img
-                      className="w-[454px] h-[350px] object-cover rounded-t-3xl"
+                      className="w-[388px] sm:w-[454px] h-[300px] sm:h-[350px] object-cover rounded-t-3xl"
                       src={blog.image}
                       alt=""
                     />
-                    <div className="py-8 px-9 w-[454px] rounded-b-3xl  h-[313px]  flex flex-col justify-between border-2  border-t-0 dark:border-gray-900">
+                    <div className="p-4 sm:py-8 sm:px-9 w-[388px] sm:w-[454px] rounded-b-3xl  h-[250px]  flex flex-col justify-between border-2  border-t-0 dark:border-gray-900">
                       <div className="flex-col">
                         <div className=" flex dark:text-secondaryText text-lightSecondaryText items-center  mt-4">
-                          <div className="inline mr-2 text-xs">
-                            <FaUserCircle className=" text-3xl text-lightPrimaryText" />
+                          <div className="inline mr-2">
+                            <FaUserCircle className=" text-3xl text-lightPrimaryText dark:text-secondaryText" />
                           </div>
                           <div className="flex flex-col text-xs font-thin">
                             <div className="inline">{blog.byUser.name}</div>
@@ -69,11 +69,11 @@ function Home() {
                             </p>
                           </div>
                         </div>
-                        <span className="dark:text-primaryText  text-2xl line-clamp-2 pt-4">
+                        <span className="dark:text-primaryText text-xl   sm:text-2xl line-clamp-2 pt-4">
                           {blog.title}
                         </span>
                         <div
-                          className="dark:text-secondaryText text-lightSecondaryText line-clamp-3 mt-3"
+                          className="dark:text-secondaryText text-lightSecondaryText line-clamp-3 mt-3  text-sm sm:text-base"
                           dangerouslySetInnerHTML={{ __html: blog.content }}
                         />
                       </div>

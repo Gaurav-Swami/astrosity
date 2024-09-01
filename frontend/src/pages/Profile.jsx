@@ -49,7 +49,7 @@ const Profile = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex justify-center flex-col items-center mt-16">
+        <div className="flex justify-center flex-col items-center mt-24">
           <div className="text-3xl dark:text-primaryText font-bold my-6">
             Your Blogs
           </div>

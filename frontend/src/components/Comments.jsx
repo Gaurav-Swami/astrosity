@@ -102,12 +102,12 @@ const Comments = ({ blog }) => {
     }
   };
   return (
-    <div className="w-[940px] mb-20 flex flex-col  px-24 border border-gray-300 dark:border-secondaryBg py-10">
+    <div className="lg:w-[940px] mb-5 md:mb-20 flex flex-col px-4  sm:px-24 border border-gray-300 dark:border-secondaryBg py-4 sm:py-10">
       <form
         className="flex flex-col  gap-y-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <span className="dark:text-primaryText text-xl ">Comments</span>
+        <span className="dark:text-primaryText text-lg sm:text-xl ">Comments</span>
         <hr className="border-t dark:border-secondaryBg dark:border-t border-gray-300" />
         <textarea
           rows={4}
@@ -137,26 +137,26 @@ const Comments = ({ blog }) => {
             key={comment._id}
           >
             <div>
-              <FaUserCircle className="text-4xl " />
+              <FaUserCircle className="text-3xl sm:text-4xl " />
             </div>
             <div className="">
               <div className="text-sm ">{comment.byUser.name}</div>
               <div className="text-xs">{setDate(comment.createdAt)} </div>
-              <p className="my-4 whitespace-pre-wrap">{comment.content}</p>
+              <p className="my-4 whitespace-pre-wrap text-sm sm:text-base ">{comment.content}</p>
               <div className="text-base flex justify-between w-36">
                 <button
                   className=" mr-4 "
                   onClick={() => handleLike(comment._id)}
                 >
                   {comment.liked ? (
-                    <PiHeartStraightFill className="inline text-2xl mr-2 text-red-600 hover:scale-125 transition-all" />
+                    <PiHeartStraightFill className="inline text-xl sm:text-2xl mr-2 text-red-600 hover:scale-125 transition-all" />
                   ) : (
-                    <PiHeartStraightLight className="text-2xl inline mr-2 hover:scale-125 transition-all" />
+                    <PiHeartStraightLight className="text-xl sm:text-2xl inline mr-2 hover:scale-125 transition-all" />
                   )}
                   {comment.likes}
                 </button>
                 <button className=" ">
-                  <PiShareFatLight className=" inline font-thin text-2xl mr-2  hover:scale-125 transition-all" />
+                  <PiShareFatLight className=" inline font-thin text-xl sm:text-2x mr-2  hover:scale-125 transition-all" />
                   Share
                 </button>
               </div>
