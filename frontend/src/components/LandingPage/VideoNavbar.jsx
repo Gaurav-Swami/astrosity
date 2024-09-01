@@ -20,7 +20,7 @@ function VideoNavbar() {
   };
 
   return (
-    <nav className="bg-transparent px-4 md:px-10 sm:px-20 py-4 sm:py-6 top-0 text-white relative left-0 z-20 ">
+    <nav className="bg-transparent px-4 md:px-10 sm:px-20 py-3 sm:py-4 top-0 text-white relative left-0 z-20 ">
       <div className="container mx-auto md:flex md:items-center justify-center md:justify-between ">
         <div className="flex justify-between items-center">
           <span className="    text-white text-3xl md:text-4xl font-bold cursor-pointer">
@@ -32,16 +32,16 @@ function VideoNavbar() {
               setOpenDrawer((prevVal) => !prevVal);
             }}
           >
-           <GiHamburgerMenu className="text-xl"/>
+           <GiHamburgerMenu className="text-3xl"/>
           </span>
         </div>
 
         <div
           className={` font-normal md:static absolute z-10 ${
-            openDrawer ? "right-0" : "right-[-600px]"
-          } md:text-center text-lg transition-all md:w-auto w-full bg-black text-white md:text-white top-20`}
+            openDrawer ? "left-0" : "left-[-1000px]"
+          } md:text-center text-lg transition-all md:w-auto w-full bg-black md:bg-transparent text-white md:text-white top-[60px] sm:top[84px]`}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center gap-y-2 p-2">
+          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center gap-y-3 px-2 py-4">
             <li>
               
               <Link
@@ -113,8 +113,8 @@ function VideoNavbar() {
                   className={`dark:text-white`}
 
                 >
-                  <span  className="md:invisible visible text-lg">PROFILE</span>
-                  {/* <span className="invisible md:visible text-4xl"><FaUserCircle /></span> */}
+                  {/* <span  className="md:invisible visible text-lg">PROFILE</span> */}
+                  <span className=" text-4xl text-white"><FaUserCircle /></span>
                 </Link>
               </li>
             )}

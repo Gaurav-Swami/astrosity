@@ -16,6 +16,7 @@ export default function TextEditor({ setContent, content }) {
   }, [content]);
   return (
     <Editor
+     
       apiKey="thbkcrs7uawrriuqjwkwcve8q34o4ki5ku6fby4c28ze2xqt"
       onBlur={log}
       onInit={(_evt, editor) => (editorRef.current = editor)}
@@ -55,7 +56,7 @@ export default function TextEditor({ setContent, content }) {
         //   args.content = args.content.replace(/(?:\r\n|\r|\n)/g, "<br>"); // Normalize new lines
         // },
         content_style:
-          "body { font-family:Helvetica,Arial,sans-serif; font-size:14px; }",
+          "body { font-family:Helvetica,Arial,sans-serif; font-size:14px;  }",
         paste_as_text: true,
     
 

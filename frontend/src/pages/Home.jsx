@@ -47,7 +47,7 @@ function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-lightPrimaryText text-center dark:text-white py-8">
               Explore Our Blogs
             </h2>
-            <div className="grid gird-cols-1 sm:grid-cols-2 gap-5 justify-items-center">
+            <div className="grid gird-cols-1 md:grid-cols-2 gap-5 justify-items-center">
               {blogs.map((blog) => (
                 <Link key={blog._id} to={`/blogs/${blog._id}`}>
                   <div className="flex flex-col items-center gap-x-4  px-4 sm:p-1 sm:m-2 w-xl cursor-pointer sm:hover:scale-105 transition-all">

@@ -14,11 +14,19 @@ function Navbar() {
   const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user);
-
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   const [showNavbar, setShowNavbar] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const onSignOut = () => {
+    displayMsg("Logged Out", 1);
+    dispatch(signOut());
+    console.log("logged Out");
+  };
+
+  useEffect(() => {
+    setOpenDrawer(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,19 +36,11 @@ function Navbar() {
         setShowNavbar(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const onSignOut = () => {
-    displayMsg("Logged Out", 1);
-    dispatch(signOut());
-    console.log("logged Out");
-  };
 
   return (
     <nav
@@ -59,15 +59,15 @@ function Navbar() {
               setOpenDrawer((prevVal) => !prevVal);
             }}
           >
-            <GiHamburgerMenu className="text-xl"/>
+            <GiHamburgerMenu className="text-3xl" />
           </span>
         </div>
         <div
           className={` font-normal md:static absolute ${
-            openDrawer ? "right-0" : "right-[-600px]"
-          }  transition-all  md:text-center text-lg bg-white md:w-auto w-full top-20`}
+            openDrawer ? "left-0" : "left-[-1000px]"
+          }  transition-all  md:text-center text-lg bg-white md:w-auto w-full top-[60px] sm:top-[84px]`}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center">
+          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center gap-y-3 px-2   py-2">
             <li>
               <Link
                 to="/"
