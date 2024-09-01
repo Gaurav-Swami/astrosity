@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../features/darkmode/darkMode";
@@ -13,10 +14,11 @@ function Navbar() {
   const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user);
-  
+
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   const [showNavbar, setShowNavbar] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,57 +44,103 @@ function Navbar() {
 
   return (
     <nav
-      className={`dark:bg-black bg-white shadow-md px-4 sm:px-20 py-3 sm:py-6 fixed top-0 left-0 right-0 z-10 transition-transform ${
+      className={`dark:bg-black bg-white  shadow-md md:px-10  px-4 sm:px-20 py-3 sm:py-6 fixed top-0 left-0 right-0 z-20 transition-transform ${
         showNavbar ? "transform translate-y-0" : "transform -translate-y-full"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between">
-        <div className=" cursor-pointer text-black dark:text-white text-3xl sm:text-4xl font-bold" onClick={() => dispatch(toggleDarkMode())}>
-          ASTROSITY
-        </div>
-        <div className="flex text-lg font-normal space-x-8 text-center items-center">
-          
-
-          <Link
-            to="/"
-            className={`hover:text-accent ${
-              isActive("/") ? "text-accent " : "dark:text-white "
-            }`}
+      <div className="container mx-auto  md:flex md:items-center justify-center md:justify-between">
+        <div className="flex justify-between items-center">
+          <span className="    dark:text-white text-3xl md:text-4xl font-bold cursor-pointer">
+            ASTROSITY
+          </span>
+          <span
+            className="md:invisible cursor-pointer "
+            onClick={() => {
+              setOpenDrawer((prevVal) => !prevVal);
+            }}
           >
-            HOME
-          </Link>
-          <Link to="/blogs" className="hover:text-accent dark:text-white">
-            BLOGS
-          </Link>
-          <Link to="/aboutus"  className="hover:text-accent dark:text-white">
-            ABOUT US
-          </Link>
-          <Link to="/blogs/create" className="hover:text-accent dark:text-white">
-            WRITE
-          </Link>
-          {isAuthenticated ? (
-            <button className="dark:text-white" onClick={onSignOut}>
-              SIGN OUT
-            </button>
-          ) : (
-            <Link
-              to="/signin"
-              className={`hover:text-accent ${
-                isActive("/signin") ? "text-accent " : "dark:text-white"
-              }`}
-            >
-              SIGN IN
-            </Link>
-          )}
+            <GiHamburgerMenu className="text-xl"/>
+          </span>
+        </div>
+        <div
+          className={` font-normal md:static absolute ${
+            openDrawer ? "right-0" : "right-[-600px]"
+          }  transition-all  md:text-center text-lg bg-white md:w-auto w-full top-20`}
+        >
+          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center">
+            <li>
+              <Link
+                to="/"
+                className={`hover:text-accent ${
+                  isActive("/") ? "text-accent " : "dark:text-white "
+                }`}
+              >
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blogs"
+                className={`hover:text-accent ${
+                  isActive("/blogs") ? "text-accent " : "dark:text-white "
+                }`}
+              >
+                BLOGS
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/aboutus"
+                className={`hover:text-accent ${
+                  isActive("/about") ? "text-accent " : "dark:text-white "
+                }`}
+              >
+                ABOUT US
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blogs/create"
+                className={`hover:text-accent ${
+                  isActive("/blogs/create")
+                    ? "text-accent "
+                    : "dark:text-white "
+                }`}
+              >
+                WRITE
+              </Link>
+            </li>
 
-          {isAuthenticated && (
-            <Link
-              to={`/profile/${user._id}`}
-              className="dark:text-white text-4xl transition hover:scale-125"
-            >
-              <FaUserCircle />
-            </Link>
-          )}
+            {isAuthenticated ? (
+              <li>
+                <button className={"dark:text-white "} onClick={onSignOut}>
+                  SIGN OUT
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  to="/signin"
+                  className={`hover:text-accent ${
+                    isActive("/signin") ? "text-accent " : "dark:text-white"
+                  }`}
+                >
+                  SIGN IN
+                </Link>
+              </li>
+            )}
+
+            {isAuthenticated && (
+              <li>
+                <Link
+                  to={`/profile/${user._id}`}
+                  className={`dark:text-white text-4xl transition hover:scale-125`}
+                >
+                  <FaUserCircle />
+                </Link>
+              </li>
+            )}
+          </ul>
         </div>
       </div>
     </nav>

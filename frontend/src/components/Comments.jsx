@@ -102,7 +102,7 @@ const Comments = ({ blog }) => {
     }
   };
   return (
-    <div className="lg:w-[940px] mb-5 md:mb-20 flex flex-col px-4  sm:px-24 border border-gray-300 dark:border-secondaryBg py-4 sm:py-10">
+    <div className="lg:w-[940px] w-full  mb-5 md:mb-20 flex flex-col px-4  sm:px-24 border border-gray-300 dark:border-secondaryBg py-4 sm:py-10">
       <form
         className="flex flex-col  gap-y-4"
         onSubmit={handleSubmit(onSubmit)}
