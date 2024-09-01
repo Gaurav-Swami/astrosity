@@ -95,7 +95,7 @@ const Comments = ({ blog }) => {
         console.log(err, "...");
         displayMsg(err.response.data.message || "An error occurred", 0);
       } else if (err.request) {
-        displayMsg("No response from the server", message, 0);
+        displayMsg("No response from the server",0);
       } else {
         displayMsg("An error occurred", 0);
       }

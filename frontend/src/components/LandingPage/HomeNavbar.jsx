@@ -51,7 +51,7 @@ function Navbar() {
       <div className="container mx-auto  md:flex md:items-center justify-center md:justify-between">
         <div className="flex justify-between items-center">
           <span className="    dark:text-white text-3xl md:text-4xl font-bold cursor-pointer">
-            ATROSITY
+            ASTROSITY
           </span>
           <span
             className="md:invisible cursor-pointer "
