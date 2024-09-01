@@ -29,7 +29,7 @@ const Blog = () => {
   };
   useEffect(() => {
     fetchBlog();
-  }, [id]);
+  }, []);
 
   return (
     <>
