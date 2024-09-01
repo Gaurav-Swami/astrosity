@@ -36,7 +36,7 @@ function CreateBlog() {
         if (imageFile) {
           formData.append("image", imageFile);
         }
-        const url = "http://localhost:3000/blogs";
+        const url = "https://astrosity-backend.onrender.com/blogs";
 
         const response = await axios.post(url, formData, {
           headers: {

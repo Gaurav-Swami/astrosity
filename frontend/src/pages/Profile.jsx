@@ -12,7 +12,7 @@ const Profile = () => {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:3000/blogs/user/${userId}`);
+      const res = await axios.get(`https://astrosity-backend.onrender.com/blogs/user/${userId}`);
       setBlogs(res.data.data);
       setLoading(false);
     } catch (error) {
@@ -23,7 +23,7 @@ const Profile = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/blogs/${id}`);
+      const res = await axios.delete(`https://astrosity-backend.onrender.com/blogs/${id}`);
       if (res.data.success) {
         setBlogs(blogs.filter((blog) => blog._id != id));
         displayMsg("Blog Deleted Successfully", 1);

@@ -10,7 +10,7 @@ function ShowBlogs() {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:3000/blogs");
+      const res = await axios.get("https://astrosity-backend.onrender.com/blogs");
       setBlogs(res.data.data);
       setLoading(false);
     } catch (error) {

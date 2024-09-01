@@ -19,7 +19,7 @@ function Signin() {
 
   scrollToTop();
   const onSubmit = async (data) => {
-    const url = "http://localhost:3000/auth/signin";
+    const url = "https://astrosity-backend.onrender.com/auth/signin";
     if (Object.keys(errors).length === 0) {
       try {
         const response = await axios.post(url, data, {
