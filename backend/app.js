@@ -14,7 +14,7 @@ app.use(cors());
 
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   console.log("home");
