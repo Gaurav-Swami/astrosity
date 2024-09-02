@@ -49,10 +49,7 @@ const createBlog = async (req, res) => {
 
 const displayBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find().populate(
-      "byUser",
-      "name"
-    );
+    const blogs = await Blog.find().populate("byUser", "name");
     if (!blogs.length) {
       return res
         .status(404)
@@ -97,10 +94,10 @@ const displayUserBlogs = async (req, res) => {
 const displaySingleBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const blog = await Blog.findOne({ _id: id }).populate(
-      "comments.byUser",
-      "byUser"
-    );
+    const blog = await Blog.findOne({ _id: id }).populate({
+      path: "comments.byUser",
+      select: "name _id", // Populate the name and id of the user who made the comment
+    });
     if (!blog) {
       return res
         .status(404)
