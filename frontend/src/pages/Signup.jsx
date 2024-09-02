@@ -17,7 +17,7 @@ function Signup() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const url = "https://astrosity-backend.onrender.com/auth/signup";
+    const url = `${process.env.BASE_URL}/auth/signup`;
     try {
       const response = await axios.post(url, data, {
         headers: {

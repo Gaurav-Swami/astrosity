@@ -16,7 +16,7 @@ const Blog = () => {
   const fetchBlog = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`https://astrosity-backend.onrender.com/blogs/${id}`);
+      const res = await axios.get(`${process.env.BASE_URL}/blogs/${id}`);
       console.log(res.data.data);
       setBlog(res.data.data);
       //setComments(res.data.data.comments);

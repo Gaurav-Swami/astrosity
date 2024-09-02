@@ -68,7 +68,7 @@ const Comments = ({ blog }) => {
       return;
     }
     data.byUser = userId;
-    const url = `http://localhost:3000/blogs/${blog._id}/comments`;
+    const url = `${process.env.BASE_URL}/${blog._id}/comments`;
     try {
       const response = await axios.post(url, data);
       const { success, message } = response.data;
@@ -95,7 +95,7 @@ const Comments = ({ blog }) => {
         console.log(err, "...");
         displayMsg(err.response.data.message || "An error occurred", 0);
       } else if (err.request) {
-        displayMsg("No response from the server",0);
+        displayMsg("No response from the server", 0);
       } else {
         displayMsg("An error occurred", 0);
       }
@@ -107,7 +107,9 @@ const Comments = ({ blog }) => {
         className="flex flex-col  gap-y-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <span className="dark:text-primaryText text-lg sm:text-xl ">Comments</span>
+        <span className="dark:text-primaryText text-lg sm:text-xl ">
+          Comments
+        </span>
         <hr className="border-t dark:border-secondaryBg dark:border-t border-gray-300" />
         <textarea
           rows={4}
@@ -142,7 +144,9 @@ const Comments = ({ blog }) => {
             <div className="">
               <div className="text-sm ">{comment.byUser.name}</div>
               <div className="text-xs">{setDate(comment.createdAt)} </div>
-              <p className="my-4 whitespace-pre-wrap text-sm sm:text-base ">{comment.content}</p>
+              <p className="my-4 whitespace-pre-wrap text-sm sm:text-base ">
+                {comment.content}
+              </p>
               <div className="text-base flex justify-between w-36">
                 <button
                   className=" mr-4 "
