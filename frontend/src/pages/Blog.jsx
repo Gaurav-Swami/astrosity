@@ -3,6 +3,7 @@ import axios from "axios";
 import Spinner from "../components/Spinner";
 import Comments from "../components/Comments";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "../utils/Base";
 
 const Blog = () => {
   const [blog, setBlog] = useState(null);
@@ -16,7 +17,7 @@ const Blog = () => {
   const fetchBlog = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.BASE_URL}/blogs/${id}`);
+      const res = await axios.get(`${BASE_URL}/blogs/${id}`);
       console.log(res.data.data);
       setBlog(res.data.data);
       //setComments(res.data.data.comments);

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { displayMsg } from "../assets/Pop";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../utils/Base.js";
 
 const Comments = ({ blog }) => {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ const Comments = ({ blog }) => {
       (comment) => comment._id == commentId
     );
 
-    const url = `http://localhost:3000/blogs/${blog._id}/comments/${commentId}/toggle-like`;
+    const url = `${BASE_URL}/blogs/${blog._id}/comments/${commentId}/toggle-like`;
     try {
       const response = await axios.post(url, { liked: updatedComment.liked });
       const { success, message } = response.data;
@@ -68,7 +69,7 @@ const Comments = ({ blog }) => {
       return;
     }
     data.byUser = userId;
-    const url = `${process.env.BASE_URL}/${blog._id}/comments`;
+    const url = `${BASE_URL}/blogs/${blog._id}/comments`;
     try {
       const response = await axios.post(url, data);
       const { success, message } = response.data;

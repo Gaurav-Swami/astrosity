@@ -6,6 +6,7 @@ import { displayMsg } from "../assets/Pop";
 import axios from "axios";
 import TextEditor from "../components/TextEditor";
 import scrollToTop from "../hooks/scrollToTop.js";
+import { BASE_URL } from "../utils/Base.js";
 
 function CreateBlog() {
   scrollToTop();
@@ -36,7 +37,7 @@ function CreateBlog() {
         if (imageFile) {
           formData.append("image", imageFile);
         }
-        const url = `${process.env.BASE_URL}/blogs`;
+        const url = `${BASE_URL}/blogs`;
 
         const response = await axios.post(url, formData, {
           headers: {

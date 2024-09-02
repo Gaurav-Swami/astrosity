@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import { displayMsg } from "../assets/Pop";
+import { BASE_URL } from "../utils/Base.js";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -12,7 +13,7 @@ const Profile = () => {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.BASE_URL}/blogs/user/${userId}`);
+      const res = await axios.get(`${BASE_URL}/blogs/user/${userId}`);
       setBlogs(res.data.data);
       setLoading(false);
     } catch (error) {
@@ -23,7 +24,7 @@ const Profile = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const res = await axios.delete(`${process.env.BASE_URL}/blogs/${id}`);
+      const res = await axios.delete(`${BASE_URL}/blogs/${id}`);
       if (res.data.success) {
         setBlogs(blogs.filter((blog) => blog._id != id));
         displayMsg("Blog Deleted Successfully", 1);

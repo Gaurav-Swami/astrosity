@@ -6,6 +6,7 @@ import { displayMsg, Pop } from "../assets/Pop";
 import axios from "axios";
 import { signIn } from "../features/auth/authSlice";
 import { useDispatch } from "react-redux";
+import { BASE_URL } from "../utils/Base";
 
 function Signup() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function Signup() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const url = `${process.env.BASE_URL}/auth/signup`;
+    const url = `${BASE_URL}/auth/signup`;
     try {
       const response = await axios.post(url, data, {
         headers: {

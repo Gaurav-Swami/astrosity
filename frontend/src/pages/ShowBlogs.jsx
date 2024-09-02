@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import { BASE_URL } from "../utils/Base";
 
 function ShowBlogs() {
   const [blogs, setBlogs] = useState([]);
@@ -10,7 +11,7 @@ function ShowBlogs() {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.BASE_URL}/blogs`);
+      const res = await axios.get(`${BASE_URL}/blogs`);
       setBlogs(res.data.data);
       setLoading(false);
     } catch (error) {

@@ -7,6 +7,7 @@ import axios from "axios";
 import { signIn } from "../features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import scrollToTop from "../hooks/scrollToTop";
+import { BASE_URL } from "../utils/Base.js";
 
 function Signin() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function Signin() {
 
   scrollToTop();
   const onSubmit = async (data) => {
-    const url = `${process.env.BASE_URL}/auth/signin`;
+    const url = `${BASE_URL}/auth/signin`;
     if (Object.keys(errors).length === 0) {
       try {
         const response = await axios.post(url, data, {

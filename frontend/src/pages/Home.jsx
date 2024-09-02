@@ -7,6 +7,7 @@ import HomeNavbar from "../components/LandingPage/HomeNavbar";
 import Planets from "../components/LandingPage/Planets";
 import { FaUserCircle } from "react-icons/fa";
 import scrollToTop from "../hooks/scrollToTop";
+import { BASE_URL } from "../utils/Base";
 
 function Home() {
   scrollToTop();
@@ -16,7 +17,7 @@ function Home() {
   const fetchBlogs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.BASE_URL}/blogs`);
+      const res = await axios.get(`${BASE_URL}/blogs`);
       setBlogs(res.data.data);
       setLoading(false);
     } catch (error) {
