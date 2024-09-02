@@ -50,7 +50,12 @@ function Navbar() {
     >
       <div className="container mx-auto  md:flex md:items-center justify-center md:justify-between">
         <div className="flex justify-between items-center">
-          <span className="    dark:text-white text-3xl md:text-4xl font-bold cursor-pointer">
+          <span
+            className="    dark:text-white text-3xl md:text-4xl font-bold cursor-pointer"
+            onClick={() => {
+              dispatch(toggleDarkMode());
+            }}
+          >
             ASTROSITY
           </span>
           <span
@@ -65,9 +70,9 @@ function Navbar() {
         <div
           className={` font-normal md:static absolute ${
             openDrawer ? "left-0" : "left-[-1000px]"
-          }  transition-all  md:text-center text-lg bg-white md:w-auto w-full top-[60px] sm:top-[84px]`}
+          }  transition-all  md:text-center text-lg  md:w-auto w-full top-[60px] sm:top-[84px]`}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center gap-y-3 px-2   py-2">
+          <ul className="flex flex-col md:flex-row dark:bg-black bg-white md:space-x-8 md:items-center gap-y-3 px-2   py-2">
             <li>
               <Link
                 to="/"

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import { displayMsg } from "../../assets/Pop";
+import { toggleDarkMode } from "../../features/darkmode/darkMode";
 import { signOut } from "../../features/auth/authSlice";
 import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
@@ -23,7 +24,12 @@ function VideoNavbar() {
     <nav className="bg-transparent px-4 md:px-10 sm:px-20 py-3 sm:py-4 top-0 text-white relative left-0 z-20 ">
       <div className="container mx-auto md:flex md:items-center justify-center md:justify-between ">
         <div className="flex justify-between items-center">
-          <span className="    text-white text-3xl md:text-4xl font-bold cursor-pointer">
+          <span
+            className="    text-white text-3xl md:text-4xl font-bold cursor-pointer"
+            onClick={() => {
+              dispatch(toggleDarkMode());
+            }}
+          >
             ASTROSITY
           </span>
           <span
@@ -32,7 +38,7 @@ function VideoNavbar() {
               setOpenDrawer((prevVal) => !prevVal);
             }}
           >
-           <GiHamburgerMenu className="text-3xl"/>
+            <GiHamburgerMenu className="text-3xl" />
           </span>
         </div>
 
@@ -43,9 +49,7 @@ function VideoNavbar() {
         >
           <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center gap-y-3 px-2 py-4">
             <li>
-              
               <Link
-                
                 to="/"
                 className={`hover:text-accent ${
                   isActive("/") ? "text-accent " : "dark:text-white "
@@ -108,13 +112,11 @@ function VideoNavbar() {
 
             {isAuthenticated && (
               <li>
-                <Link
-                  to={`/profile/${user._id}`}
-                  className={`dark:text-white`}
-
-                >
+                <Link to={`/profile/${user._id}`} className={`dark:text-white`}>
                   {/* <span  className="md:invisible visible text-lg">PROFILE</span> */}
-                  <span className=" text-4xl text-white"><FaUserCircle /></span>
+                  <span className=" text-4xl text-white">
+                    <FaUserCircle />
+                  </span>
                 </Link>
               </li>
             )}

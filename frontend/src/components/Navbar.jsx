@@ -24,7 +24,7 @@ function Navbar() {
   useEffect(() => {
     setOpenDrawer(false);
   }, [location.pathname]);
-  
+
   useEffect(() => {
     setOpenDrawer(false);
   }, [location.pathname]);
@@ -32,13 +32,17 @@ function Navbar() {
   if (location.pathname === "/") {
     return null; // Don't render the navbar
   }
-  
 
   return (
     <nav className="dark:bg-black bg-white px-4 md:px-10  sm:px-20 py-3   sm:py-6 fixed top-0 left-0 right-0  shadow-md z-20">
       <div className="container mx-auto md:flex   md:items-center justify-center md:justify-between">
         <div className="flex  justify-between items-center ">
-          <span className="    dark:text-white text-3xl md:text-4xl font-bold cursor-pointer ">
+          <span
+            className="    dark:text-white text-3xl md:text-4xl font-bold cursor-pointer "
+            onClick={() => {
+              dispatch(toggleDarkMode());
+            }}
+          >
             ASTROSITY
           </span>
           <span
@@ -55,7 +59,7 @@ function Navbar() {
             openDrawer ? "left-0" : "left-[-1000px]"
           }  transition-all  md:text-center text-lg  w-full md:w-auto top-[60px] sm:top-[84px] `}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center bg-white sm:pt-2 gap-y-3 px-2 sm:px-12 py-2 ">
+          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center dark:bg-black bg-white sm:pt-2 gap-y-3 px-2 sm:px-12 py-2 ">
             <li>
               <Link
                 to="/"
@@ -104,7 +108,7 @@ function Navbar() {
                 <button
                   className={"dark:text-white "}
                   onClick={() => {
-                    onSignOut;
+                    onSignOut();
                   }}
                 >
                   SIGN OUT
