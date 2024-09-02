@@ -28,6 +28,7 @@ const Blog = () => {
     }
   };
   useEffect(() => {
+    setLoading(true);
     fetchBlog();
   }, []);
 
