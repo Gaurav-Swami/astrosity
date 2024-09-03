@@ -11,12 +11,27 @@ const createBlog = async (req, res) => {
     let imageURL = "";
 
     if (imageFile) {
-      const result = await cloudinary.uploader.upload(imageFile.path, {
-        folder: "blogimages",
-      });
-      imageURL = result.secure_url;
-
-      fs.unlinkSync(imageFile.path);
+      try {
+        // Use upload_stream if you are using memoryStorage
+        const result = await new Promise((resolve, reject) => {
+          const uploadStream = cloudinary.uploader.upload_stream(
+            { folder: "blogimages" },
+            (error, result) => {
+              if (error) {
+                reject(error);
+              } else {
+                resolve(result);
+              }
+            }
+          );
+          uploadStream.end(imageFile.buffer); // Send the buffer
+        });
+        imageURL = result.secure_url;
+      } catch (error) {
+        return res
+          .status(500)
+          .json({ message: "Image upload failed", success: false });
+      }
     } else {
       imageURL =
         "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3";
