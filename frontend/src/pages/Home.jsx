@@ -53,11 +53,11 @@ function Home() {
                 <Link key={blog._id} to={`/blogs/${blog._id}`}>
                   <div className="flex flex-col items-center gap-x-4  px-4 sm:p-1 sm:m-2 w-xl cursor-pointer sm:hover:scale-105 transition-all">
                     <img
-                      className="w-[388px] sm:w-[454px] h-[300px] sm:h-[350px] object-cover rounded-t-3xl"
+                      className="w-full  sm:w-[454px] h-[250px] sm:h-[350px] object-cover rounded-t-3xl"
                       src={blog.image}
                       alt=""
                     />
-                    <div className="p-4 sm:py-8 sm:px-9 w-[388px] sm:w-[454px] rounded-b-3xl  h-[250px]  flex flex-col justify-between border-2  border-t-0 dark:border-gray-900">
+                    <div className="p-4 sm:py-8 sm:px-9 w-full sm:w-[454px] rounded-b-3xl  h-[250px]  flex flex-col justify-between border-2  border-t-0 dark:border-gray-900">
                       <div className="flex-col">
                         <div className=" flex dark:text-secondaryText text-lightSecondaryText items-center  mt-4">
                           <div className="inline mr-2">

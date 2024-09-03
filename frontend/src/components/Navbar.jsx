@@ -59,7 +59,7 @@ function Navbar() {
             openDrawer ? "left-0" : "left-[-1000px]"
           }  transition-all  md:text-center text-lg  w-full md:w-auto top-[60px] sm:top-[84px] `}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center dark:bg-black bg-white sm:pt-2 gap-y-3 px-2 sm:px-12 py-2 ">
+          <ul className="flex flex-col md:flex-row md:space-x-8 md:items-center dark:bg-black bg-white sm:pt-2 gap-y-3 px-2  py-2 ">
             <li>
               <Link
                 to="/"

@@ -16,6 +16,7 @@ import TextEditor from "./components/TextEditor";
 import ShowBlogs from "./pages/ShowBlogs";
 import Footer from "./components/Footer";
 import AboutUs from "./pages/AboutUs";
+import DelPopup from "./components/DelPopup";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<ShowBlogs />} />
           <Route path="/blogs/:id" element={<Blog />} />
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/aboutus" element={<DelPopup />} />
           <Route path="/texteditor" element={<TextEditor />} />
           <Route element={<RedirectIfAuthenticated />}>
             <Route path="/signin" element={<Signin />} />
